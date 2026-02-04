@@ -26,6 +26,28 @@ use MapasSDK\MapasSDK;
  */
 class Plugin extends \MapasCulturais\Plugin
 {
+    static function preInit() {
+        $sdk_base = __DIR__ . '/vendor/MapasSDK/src/';
+        if (!is_dir($sdk_base)) {
+            return;
+        }
+
+        spl_autoload_register(function ($class) use ($sdk_base) {
+            $prefix = 'MapasSDK\\';
+            if (strpos($class, $prefix) !== 0) {
+                return false;
+            }
+
+            $path = $sdk_base . str_replace('\\', '/', $class) . '.php';
+            if (file_exists($path)) {
+                require_once $path;
+                return true;
+            }
+
+            return false;
+        });
+    }
+
     const ACTION_RESYNC = "resyncEntity";
     const ACTION_SCOPED = "scopedEntity";
 
