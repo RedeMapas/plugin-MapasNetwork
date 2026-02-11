@@ -127,7 +127,15 @@ class Plugin extends \MapasCulturais\Plugin
              * Certifica-se de que o cache dos filtros existam no momento do login
              */
             foreach($plugin->config['nodes'] as $url) {
-                self::getNodeFilters($url);
+                try {
+                    self::getNodeFilters($url);
+                } catch (\MapasSDK\Exceptions\NotFound $e) {
+                    $app = App::i();
+                    self::log("Failed to fetch filters from {$url}: " . $e->getMessage());
+                } catch (\Exception $e) {
+                    $app = App::i();
+                    self::log("Error fetching filters from {$url}: " . $e->getMessage());
+                }
             }
 
             /**
