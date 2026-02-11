@@ -63,9 +63,9 @@ class Node extends \MapasCulturais\Entity
     protected $user;
 
     /**
-     * @var \MapasCulturais\Entities\UserApp
+     * @var \Apps\Entities\UserApp
      *
-     * @ORM\ManyToOne(targetEntity="MapasCulturais\Entities\UserApp", fetch="LAZY")
+     * @ORM\ManyToOne(targetEntity="Apps\Entities\UserApp", fetch="LAZY")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_app_pubk", referencedColumnName="public_key", nullable=false, onDelete="CASCADE")
      * })

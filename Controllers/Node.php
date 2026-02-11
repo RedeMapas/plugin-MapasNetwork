@@ -5,7 +5,7 @@ namespace MapasNetwork\Controllers;
 use DateTime;
 use MapasCulturais\App;
 use MapasCulturais\Entity;
-use MapasCulturais\Entities\UserApp;
+use Apps\Entities\UserApp;
 use MapasCulturais\i;
 use MapasCulturais\Utils;
 use MapasCulturais\Traits;
