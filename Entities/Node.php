@@ -93,7 +93,7 @@ class Node extends \MapasCulturais\Entity
         parent::__construct();
     }
 
-    public function getControllerId()
+    public static function getControllerId()
     {
         return "network-node";
     }

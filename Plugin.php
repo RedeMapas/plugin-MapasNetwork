@@ -375,7 +375,7 @@ class Plugin extends \MapasCulturais\Plugin
                 return;
             }
             $auto_off = self::SYNC_AUTO_OFF;
-            if ($this->owner->changedMetadata["network__sync_control"]["oldValue"] == "$auto_off") {
+            if ($this->owner->changedMetadata["network__sync_control"]["oldValue"] == $auto_off) {
                 $plugin->syncEntity($this->owner, "updatedEntity");
             }
         });
